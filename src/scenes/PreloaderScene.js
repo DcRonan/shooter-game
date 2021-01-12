@@ -2,7 +2,7 @@ import 'phaser';
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
-    super({key: 'Preloader', active: true})
+    super('Preloader')
   }
 
   preload() {
@@ -86,7 +86,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   ready() {
-    this.scene.start('Credits');
+    this.scene.start('Options');
     this.readyCount++;
     if (this.readyCount === 2) {
       this.scene.start('Title');

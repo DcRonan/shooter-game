@@ -3,7 +3,7 @@ import config from '../config/config';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'Title', active: true });
+    super('Title');
   }
 
   create() {
