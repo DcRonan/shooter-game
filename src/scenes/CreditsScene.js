@@ -2,7 +2,7 @@ import 'phaser';
 
 export default class CreditsScene extends Phaser.Scene {
   constructor() {
-    super('Credits');
+    super({key: 'Credits', active: true})
   }
 
   preload() {}

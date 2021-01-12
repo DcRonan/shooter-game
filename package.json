@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/DcRonan/Repo-Template#readme",
   "dependencies": {
-    "phaser": "^3.50.0"
+    "phaser": "^3.51.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
