@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import config from '../config/config';
 import Button from '../components/Button';
 
@@ -15,7 +15,7 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Play',
-      'Game'
+      'Game',
     );
 
     this.optionsButton = new Button(
@@ -25,7 +25,7 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Options',
-      'Options'
+      'Options',
     );
 
     this.creditsButton = new Button(
@@ -35,14 +35,14 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Credits',
-      'Credits'
+      'Credits',
     );
 
-    this.model = this.sys.game.globals.model;
-    if (this.model.musicOn === true && this.model.bgMusicPlaying === false) {
+    this.audio = this.sys.game.globals.audio;
+    if (this.audio.musicOn === true && this.audio.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
       this.bgMusic.play();
-      this.model.bgMusicPlaying = true;
+      this.audio.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
   }
