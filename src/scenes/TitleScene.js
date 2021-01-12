@@ -48,7 +48,7 @@ export default class TitleScene extends Phaser.Scene {
         this.scene.start('Options');
       }.bind(this)
     );
-    
+
     this.creditsButton = this.add
       .sprite(300, 200, 'blueButton1')
       .setInteractive();
