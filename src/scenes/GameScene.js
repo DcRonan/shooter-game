@@ -6,12 +6,21 @@ export default class GameScene extends Phaser.Scene {
     super('Game');
   }
 
+  preload() {
+    this.load.image('background', 'assets/images/main-bg.png');
+    this.load.image('ship', 'assets/objects/player-ship.png');
+  }
+
   create() {
+    //Background
+    this.add.image(0, 0, 'background')
+
+    // Scores Display
     this.data.set('lives', 3);
     this.data.set('level', 5);
     this.data.set('score', 2000);
 
-    var text = this.add.text(40, 40, '', {
+    const text = this.add.text(40, 40, '', {
       font: '24px Courier',
       fill: '#00ff00',
     });
