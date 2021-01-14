@@ -1,14 +1,17 @@
 import Phaser from 'phaser';
+import LaserGroup from '../objects/LaserGroup';
 import Button from '../components/Button';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
+    this.laserGroup;
   }
 
   preload() {
     this.load.image('background', 'assets/images/main-bg.png');
     this.load.image('ship', 'assets/objects/player-ship.png');
+    this.load.image('laser', 'assets/objects/blue-laser.png');
   }
 
   create() {
@@ -18,10 +21,16 @@ export default class GameScene extends Phaser.Scene {
       this.cameras.main.height / 2,
       'background'
     );
+
     let scaleX = this.cameras.main.width / img.width;
     let scaleY = this.cameras.main.height / img.height;
     let scale = Math.max(scaleX, scaleY);
     img.setScale(scale).setScrollFactor(0);
+
+    // Player Ship
+    this.laserGroup = new LaserGroup(this);
+    this.addShip();
+    this.addMovement();
 
     // Scores Display
     this.data.set('lives', 3);
@@ -48,5 +57,25 @@ export default class GameScene extends Phaser.Scene {
       'Menu',
       'Title'
     );
+  }
+
+  addShip() {
+    const centerX = this.cameras.main.width / 2;
+    const centerY = this.cameras.main.height / 2;
+    this.ship = this.add.image(centerX, centerY, 'ship');
+  }
+
+  addMovement() {
+    this.input.on('pointermove', (pointer) => {
+      this.ship.x = pointer.x;
+    });
+
+    this.input.on('pointerdown', (pointer) => {
+      this.shootLaser();
+    });
+  }
+
+  shootLaser() {
+    this.laserGroup.fireLaser(this.ship.x, this.ship.y - 20);
   }
 }
