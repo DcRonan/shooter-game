@@ -3,7 +3,7 @@ export default class Laser extends Phaser.Physics.Arcade.Sprite {
     super(scene, x, y);
     this.setTexture('laser');
     this.setPosition(x, y);
-    this.speed = 10;
+    this.speed = 15;
     this.scene = scene;
     scene.physics.world.enable(this);
   }
