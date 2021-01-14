@@ -6,6 +6,7 @@ export default class Laser extends Phaser.Physics.Arcade.Sprite {
     this.speed = 15;
     this.scene = scene;
     scene.physics.world.enable(this);
+    scene.physics.add.collider(this, scene.enemies, this.shot, null, this);
   }
 
   preUpdate(time, delta) {
@@ -14,5 +15,10 @@ export default class Laser extends Phaser.Physics.Arcade.Sprite {
     }
     super.preUpdate(time, delta);
     this.y -= this.speed;
+  }
+
+  shot(laser, enemy) {
+    enemy.destroy(true);
+    laser.destroy(true);
   }
 }
