@@ -1,11 +1,12 @@
 import Phaser from 'phaser';
-import LaserGroup from '../objects/LaserGroup';
+// import LaserGroup from '../objects/LaserGroup';
+import Player from '../objects/Player';
 import Button from '../components/Button';
 
 export default class GameScene extends Phaser.Scene {
-  constructor() {
-    super('Game');
-    this.laserGroup;
+  constructor(config) {
+    super(config, 'Game');
+    // this.laserGroup;
     this.inputKeys;
   }
 
@@ -28,10 +29,14 @@ export default class GameScene extends Phaser.Scene {
     let scale = Math.max(scaleX, scaleY);
     img.setScale(scale).setScrollFactor(0);
 
+    this.cursors = this.input.keyboard.createCursorKeys();
+    this.myShip = new Player(this, 400, 500);
+    this.add.existing(this.myShip);
+
     // Player Ship
-    this.laserGroup = new LaserGroup(this);
-    this.addShip();
-    this.addMovement();
+    // this.laserGroup = new LaserGroup(this);
+    // this.addShip();
+    // this.addMovement();
 
     // this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     // this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
@@ -54,39 +59,59 @@ export default class GameScene extends Phaser.Scene {
       'Score: ' + this.data.get('score'),
     ]);
 
-    this.menuButton = new Button(
-      this,
-      400,
-      500,
-      'blueButton1',
-      'blueButton2',
-      'Menu',
-      'Title'
-    );
+    // this.menuButton = new Button(
+    //   this,
+    //   400,
+    //   500,
+    //   'blueButton1',
+    //   'blueButton2',
+    //   'Menu',
+    //   'Title'
+    // );
   }
 
-  addShip() {
-    const centerX = this.cameras.main.width / 2;
-    const centerY = this.cameras.main.height / 2;
-    this.ship = this.add.image(centerX, centerY, 'ship');
-  }
+  // addShip() {
+  //   const centerX = this.cameras.main.width / 2;
+  //   const centerY = this.cameras.main.height / 2;
+  //   this.ship = this.add.image(centerX, centerY, 'ship');
+  // }
 
-  addMovement() {
-    this.inputKeys = [
-      this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
-    ];
-  }
+  // addMovement() {
+  //   this.inputKeys = [
+  //     this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+  //   ];
+  // }
 
-  shootLaser() {
-    this.laserGroup.fireLaser(this.ship.x, this.ship.y - 20);
-  }
+  // shootLaser() {
+  //   this.laserGroup.fireLaser(this.ship.x, this.ship.y - 20);
+  // }
 
   update() {
     // Shoot laser when 'space bar' is pressed
-    this.inputKeys.forEach((key) => {
-      if (Phaser.Input.Keyboard.JustDown(key)) {
-        this.shootLaser();
-      }
-    });
+    // this.inputKeys.forEach((key) => {
+    //   if (Phaser.Input.Keyboard.JustDown(key)) {
+    //     this.shootLaser();
+    //   }
+    // });
+
+    if (this.cursors.left.isDown) {
+      this.myShip.moveLeft();
+    }
+
+    if (this.cursors.right.isDown) {
+      this.myShip.moveRight();
+    }
+
+    if (this.cursors.up.isDown) {
+      this.myShip.moveUp();
+    }
+
+    if (this.cursors.down.isDown) {
+      this.myShip.moveDown();
+    }
+
+    if (this.cursors.space.isDown) {
+      // shooting guns goes here
+    }
   }
 }

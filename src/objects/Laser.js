@@ -1,24 +1,16 @@
 export default class Laser extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
-    super(scene, x, y, 'laser');
-  }
+    super(scene, x, y);
+    this.setTexture('laser');
+    this.setPosition(x, y);
+    this.speed = 10;
+    this.scene = scene;
+    scene.physics.world.enable(this);
+}
 
-  fire(x, y) {
-    this.body.reset(x, y);
-
-    this.setActive(true);
-    this.setVisible(true);
-
-    this.setVelocityY(-900);
-  }
-
-  // Unlimited Lasers
-  preUpdate(time, delta) {
-		super.preUpdate(time, delta);
- 
-		if (this.y <= 0) {
-			this.setActive(false);
-			this.setVisible(false);
-		}
-	}
+preUpdate(time, delta) {
+    if(this.active == false){return;}
+    super.preUpdate(time, delta);
+    this.y -= this.speed;
+}
 }
