@@ -33,6 +33,11 @@ export default class GameScene extends Phaser.Scene {
     this.addShip();
     this.addMovement();
 
+    // this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    // this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    // this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    // this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+
     // Scores Display
     this.data.set('lives', 3);
     this.data.set('level', 5);
@@ -68,7 +73,7 @@ export default class GameScene extends Phaser.Scene {
 
   addMovement() {
     this.inputKeys = [
-      this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)    
+      this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
     ];
   }
 
