@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../objects/Player';
 import Button from '../components/Button';
+import EnemyOne from '../objects/EnemyOne';
 
 export default class GameScene extends Phaser.Scene {
   constructor(config) {
@@ -12,6 +13,7 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('background', 'assets/images/main-bg.png');
     this.load.image('ship', 'assets/objects/player-ship.png');
     this.load.image('laser', 'assets/objects/blue-laser.png');
+    this.load.image('enemy-one', 'assets/objects/enemy-one.png');
   }
 
   create() {
@@ -39,6 +41,20 @@ export default class GameScene extends Phaser.Scene {
     //   this.ship = this.add.image(centerX, centerY, 'ship');
     // }
 
+    // ENEMIES
+    this.enemies = this.physics.add.group();
+    this.enemiesTwo = new Array();
+
+    for (let m = 0; m < 15; m++) {
+      let x = Math.random() * 800;
+      let y = Math.random() * 400;
+
+      this.enemy = new EnemyOne(this, x, y);
+      this.add.existing(this.enemy);
+      this.enemies.add(this.enemy);
+      this.enemiesTwo.push(this.enemy);
+    }
+
     // KEYS
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
@@ -64,15 +80,15 @@ export default class GameScene extends Phaser.Scene {
       'Score: ' + this.data.get('score'),
     ]);
 
-    this.menuButton = new Button(
-      this,
-      400,
-      500,
-      'blueButton1',
-      'blueButton2',
-      'Menu',
-      'Title'
-    );
+    // this.menuButton = new Button(
+    //   this,
+    //   400,
+    //   500,
+    //   'blueButton1',
+    //   'blueButton2',
+    //   'Menu',
+    //   'Title'
+    // );
   }
 
   update() {
@@ -96,5 +112,10 @@ export default class GameScene extends Phaser.Scene {
     if (this.space.isDown) {
       this.ship.shootLaser();
     }
+
+    for (let i = 0; i < this.enemiesTwo.length; i++) {
+      let enemy = this.enemiesTwo[i];
+      enemy.update();
+  }
   }
 }
