@@ -12,8 +12,16 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    //Background
-    this.add.image(0, 0, 'background')
+    //Background Image
+    let img = this.add.image(
+      this.cameras.main.width / 2,
+      this.cameras.main.height / 2,
+      'background'
+    );
+    let scaleX = this.cameras.main.width / img.width;
+    let scaleY = this.cameras.main.height / img.height;
+    let scale = Math.max(scaleX, scaleY);
+    img.setScale(scale).setScrollFactor(0);
 
     // Scores Display
     this.data.set('lives', 3);
