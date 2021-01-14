@@ -6,6 +6,7 @@ export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
     this.laserGroup;
+    this.inputKeys;
   }
 
   preload() {
@@ -66,16 +67,21 @@ export default class GameScene extends Phaser.Scene {
   }
 
   addMovement() {
-    this.input.on('pointermove', (pointer) => {
-      this.ship.x = pointer.x;
-    });
-
-    this.input.on('pointerdown', (pointer) => {
-      this.shootLaser();
-    });
+    this.inputKeys = [
+      this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)    
+    ];
   }
 
   shootLaser() {
     this.laserGroup.fireLaser(this.ship.x, this.ship.y - 20);
+  }
+
+  update() {
+    // Shoot laser when 'space bar' is pressed
+    this.inputKeys.forEach((key) => {
+      if (Phaser.Input.Keyboard.JustDown(key)) {
+        this.shootLaser();
+      }
+    });
   }
 }
