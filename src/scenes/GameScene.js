@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-// import LaserGroup from '../objects/LaserGroup';
 import Player from '../objects/Player';
 import Button from '../components/Button';
 
@@ -29,19 +28,19 @@ export default class GameScene extends Phaser.Scene {
     let scale = Math.max(scaleX, scaleY);
     img.setScale(scale).setScrollFactor(0);
 
-    this.cursors = this.input.keyboard.createCursorKeys();
-    this.myShip = new Player(this, 400, 500);
-    this.add.existing(this.myShip);
+    // this.cursors = this.input.keyboard.createCursorKeys();
+    this.ship = new Player(this, 400, 500);
+    this.add.existing(this.ship);
 
     // Player Ship
-    // this.laserGroup = new LaserGroup(this);
     // this.addShip();
     // this.addMovement();
 
-    // this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-    // this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-    // this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-    // this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
 
     // Scores Display
     this.data.set('lives', 3);
@@ -59,15 +58,15 @@ export default class GameScene extends Phaser.Scene {
       'Score: ' + this.data.get('score'),
     ]);
 
-    // this.menuButton = new Button(
-    //   this,
-    //   400,
-    //   500,
-    //   'blueButton1',
-    //   'blueButton2',
-    //   'Menu',
-    //   'Title'
-    // );
+    this.menuButton = new Button(
+      this,
+      400,
+      500,
+      'blueButton1',
+      'blueButton2',
+      'Menu',
+      'Title'
+    );
   }
 
   // addShip() {
@@ -94,24 +93,24 @@ export default class GameScene extends Phaser.Scene {
     //   }
     // });
 
-    if (this.cursors.left.isDown) {
-      this.myShip.moveLeft();
+    if (this.keyA.isDown) {
+      this.ship.moveLeft();
     }
 
-    if (this.cursors.right.isDown) {
-      this.myShip.moveRight();
+    if (this.keyD.isDown) {
+      this.ship.moveRight();
     }
 
-    if (this.cursors.up.isDown) {
-      this.myShip.moveUp();
+    if (this.keyW.isDown) {
+      this.ship.moveUp();
     }
 
-    if (this.cursors.down.isDown) {
-      this.myShip.moveDown();
+    if (this.keyS.isDown) {
+      this.ship.moveDown();
     }
 
-    if (this.cursors.space.isDown) {
-      // shooting guns goes here
+    if (this.space.isDown) {
+      this.ship.fireLasers();
     }
   }
 }
