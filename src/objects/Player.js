@@ -47,7 +47,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     const time = new Date().getTime();
     if (time - this.lastShot > this.shotFrequency) {
       const laser = new Laser(this.scene, this.x, this.y - 65);
-      this.scene.add.existing(laser);
+      this.scene.add.existing(laser).setScale(0.7);
       this.lasers.push(laser);
       this.lastShot = time;
     }

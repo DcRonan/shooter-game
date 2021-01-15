@@ -31,15 +31,7 @@ export default class GameScene extends Phaser.Scene {
 
     // Player Ship
     this.ship = new Player(this, 400, 500);
-    this.add.existing(this.ship);
-    // this.addShip();
-
-    // CENTER
-    // addShip() {
-    //   const centerX = this.cameras.main.width / 2;
-    //   const centerY = this.cameras.main.height / 2;
-    //   this.ship = this.add.image(centerX, centerY, 'ship');
-    // }
+    this.add.existing(this.ship).setScale(0.5);
 
     // ENEMIES
     this.enemies = this.physics.add.group();
@@ -50,7 +42,7 @@ export default class GameScene extends Phaser.Scene {
       let y = Math.random() * 400;
 
       this.enemy = new EnemyOne(this, x, y);
-      this.add.existing(this.enemy);
+      this.add.existing(this.enemy).setScale(0.5);
       this.enemies.add(this.enemy);
       this.enemiesTwo.push(this.enemy);
     }
@@ -79,16 +71,6 @@ export default class GameScene extends Phaser.Scene {
       'Lives: ' + this.data.get('lives'),
       'Score: ' + this.data.get('score'),
     ]);
-
-    // this.menuButton = new Button(
-    //   this,
-    //   400,
-    //   500,
-    //   'blueButton1',
-    //   'blueButton2',
-    //   'Menu',
-    //   'Title'
-    // );
   }
 
   update() {
