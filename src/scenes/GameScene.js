@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import Player from '../objects/Player';
-import Button from '../components/Button';
 import EnemyOne from '../objects/EnemyOne';
 
 export default class GameScene extends Phaser.Scene {
@@ -32,6 +31,7 @@ export default class GameScene extends Phaser.Scene {
     // Player Ship
     this.ship = new Player(this, 400, 500);
     this.add.existing(this.ship).setScale(0.5);
+   
 
     // ENEMIES
     this.enemies = this.physics.add.group();
@@ -55,6 +55,12 @@ export default class GameScene extends Phaser.Scene {
     this.space = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
+
+    // MOUSE
+    // this.input.on('pointermove', (pointer) => {
+    //   this.ship.x = pointer.x;
+    //   this.ship.y = pointer.y
+    // });
 
     // Scores Display
     this.data.set('lives', 3);
@@ -98,6 +104,6 @@ export default class GameScene extends Phaser.Scene {
     for (let i = 0; i < this.enemiesTwo.length; i++) {
       let enemy = this.enemiesTwo[i];
       enemy.update();
-  }
+    }
   }
 }
