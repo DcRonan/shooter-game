@@ -1,36 +1,29 @@
-import config from '../config/config'
+import Base from '../Base'
+import EnemyLaser from './EnemyLaser'
 
-export default class EnemyOne extends Phaser.GameObjects.Sprite {
+export default class EnemyOne extends Base {
   constructor(scene, x, y) {
-    super(scene, x, y);
-    this.setTexture('enemy-one');
-    this.setPosition(x, y);
-    scene.physics.world.enable(this);
+    super(scene, x, y, 'enemy-one', 'EnemyOne');
 
-    this.gameObject = this;
-    this.deltaX = 3;
+    this.body.velocity.y = Phaser.Math.Between(60, 100);
+
+    this.shotFrequency = this.scene.time.addEvent({
+      delay: 1100,
+      callback() {
+        let laser = new EnemyLaser(this.scene, this.x, this.y);
+        laser.setScale(this.scaleX);
+        this.scene.enemyLasers.add(laser);
+      },
+      callbackScope: this,
+      loop: true,
+    });
   }
 
-  update() {
-    let m = Math.random() * 4;
-    m = Math.round(m);
-
-    if (m == 2) {
-      this.moveLeft();
-    } else if (m == 3) {
-      this.moveRight();
-    }
-  }
-
-  moveLeft() {
-    if (this.x > 0) {
-      this.x -= this.deltaX;
-    }
-  }
-
-  moveRight() {
-    if (this.x < config.width) {
-      this.x += this.deltaX;
+  shot() {
+    if (this.shotFrequency !== undefined) {
+      if (this.shotFrequency) {
+        this.shotFrequency.remove(false);
+      }
     }
   }
 }

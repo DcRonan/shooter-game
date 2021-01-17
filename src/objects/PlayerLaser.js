@@ -1,9 +1,12 @@
-export default class Laser extends Phaser.Physics.Arcade.Sprite {
+import Base from '../Base'
+
+export default class PlayerLaser extends Base {
   constructor(scene, x, y) {
-    super(scene, x, y);
-    this.setTexture('laser');
+    super(scene, x, y, 'player-laser');
+    this.setTexture('player-laser');
     this.setPosition(x, y);
-    this.speed = 15;
+    this.setScale(0.4)
+    this.speed = 3;
     this.scene = scene;
     scene.physics.world.enable(this);
     scene.physics.add.collider(this, scene.enemies, this.shot, null, this);
@@ -15,10 +18,5 @@ export default class Laser extends Phaser.Physics.Arcade.Sprite {
     }
     super.preUpdate(time, delta);
     this.y -= this.speed;
-  }
-
-  shot(laser, enemy) {
-    enemy.destroy(true);
-    laser.destroy(true);
   }
 }
