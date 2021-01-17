@@ -36,7 +36,7 @@ export default class GameScene extends Phaser.Scene {
     // Scores Display
     this.data.set('lives', 3);
     this.data.set('level', 5);
-    this.data.set('score', 2000);
+    this.data.set('score', 10);
 
     const text = this.add.text(40, 40, '', {
       font: '24px Courier',
@@ -54,8 +54,8 @@ export default class GameScene extends Phaser.Scene {
     this.add.existing(this.player);
 
     // Sounds
-    this.sfx = { 
-      laser: this.sound.add('laser-sound')
+    this.sfx = {
+      laser: this.sound.add('laser-sound'),
     };
 
     // KEYS

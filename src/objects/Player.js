@@ -8,6 +8,7 @@ export default class Player extends Base {
 
     this.deltaX = 5;
     this.deltaY = 5;
+    this.score = 0
     this.setData('shooting', false);
     this.setData('shotFrequency', 20);
     this.setData('shootTime', this.getData('shotFrequency') - 1);
