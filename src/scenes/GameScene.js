@@ -34,20 +34,13 @@ export default class GameScene extends Phaser.Scene {
     img.setScale(scale).setScrollFactor(0);
 
     // Scores Display
-    this.data.set('lives', 3);
-    this.data.set('level', 5);
-    this.data.set('score', 10);
-
-    const text = this.add.text(40, 40, '', {
+    let score = 0
+    let text = this.add.text(40, 40, '', {
       font: '24px Courier',
       fill: '#00ff00',
     });
 
-    text.setText([
-      'Level: ' + this.data.get('level'),
-      'Lives: ' + this.data.get('lives'),
-      'Score: ' + this.data.get('score'),
-    ]);
+    text.setText('Score: ' + score);
 
     // Player Ship
     this.player = new Player(this, 400, 500, 'player').setScale(0.5);
@@ -115,6 +108,7 @@ export default class GameScene extends Phaser.Scene {
           player.dead(false);
           player.shot();
           laser.destroy();
+          score = 0
         }
       }
     );
@@ -128,6 +122,8 @@ export default class GameScene extends Phaser.Scene {
           if (enemy.shot !== undefined) {
             enemy.shot();
           }
+          score += 10;
+          text.setText('Score: ' + score);
           enemy.dead(true);
           playerLaser.destroy();
         }
