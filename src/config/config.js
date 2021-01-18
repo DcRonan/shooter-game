@@ -11,5 +11,6 @@ export default {
       debug: false,
       gravity: { y: 0 },
     },
-  }
+  },
+  autoCenter: true,
 };

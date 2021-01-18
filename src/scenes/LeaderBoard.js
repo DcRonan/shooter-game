@@ -13,7 +13,7 @@ export default class LeaderBoard extends Phaser.Scene {
       .setOrigin();
 
     for (let i = 0; i < 10; i += 1) {
-        this.add.text(config.width * 0.5 , config.height * 0.3 + 30 * i, 'Dan').setOrigin()
+        this.add.text(config.width * 0.5 , config.height * 0.3 + 30 * i, 'Dan: 5000').setOrigin()
     }  
   }
 }
