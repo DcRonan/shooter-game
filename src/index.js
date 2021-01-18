@@ -8,6 +8,9 @@ import TitleScene from './scenes/TitleScene';
 import OptionsScene from './scenes/OptionsScene';
 import CreditsScene from './scenes/CreditsScene';
 import GameOver from './scenes/GameOver';
+import LeaderBoardScene from './scenes/leaderboard/LeaderBoard';
+import HighScore from './scenes/leaderboard/HighScore';
+import Starfield from './scenes/leaderboard/Starfield';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -20,7 +23,10 @@ class Game extends Phaser.Game {
     this.scene.add('Options', OptionsScene);
     this.scene.add('Credits', CreditsScene);
     this.scene.add('GameScene', GameScene);
-    this.scene.add('GameOver', GameOver)
+    this.scene.add('GameOver', GameOver);
+    this.scene.add('LeaderBoard', LeaderBoardScene);
+    this.scene.add('Starfield', Starfield);
+    this.scene.add('HighScore', HighScore);
   }
 }
 

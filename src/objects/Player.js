@@ -42,7 +42,7 @@ export default class Player extends Base {
     this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        this.scene.scene.start('GameOver');
+        this.scene.scene.start('LeaderBoard');
       },
       callbackScope: this,
       loop: false,
