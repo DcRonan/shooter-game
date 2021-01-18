@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default class HighScore extends Phaser.Scene {
   constructor() {
-    super({ key: 'Highscore', active: true });
+    super({ key: 'Highscore', active: false });
 
     this.playerText;
   }
