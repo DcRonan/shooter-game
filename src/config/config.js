@@ -11,5 +11,5 @@ export default {
       debug: false,
       gravity: { y: 0 },
     },
-  },
+  }
 };

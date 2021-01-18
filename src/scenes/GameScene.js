@@ -35,12 +35,12 @@ export default class GameScene extends Phaser.Scene {
 
     // Scores Display
     let score = 0
-    let text = this.add.text(40, 40, '', {
+    let scoreText = this.add.text(40, 40, '', {
       font: '24px Courier',
       fill: '#00ff00',
     });
 
-    text.setText('Score: ' + score);
+    scoreText.setText('Score: ' + score);
 
     // Player Ship
     this.player = new Player(this, 400, 500, 'player').setScale(0.5);
@@ -123,7 +123,7 @@ export default class GameScene extends Phaser.Scene {
             enemy.shot();
           }
           score += 10;
-          text.setText('Score: ' + score);
+          scoreText.setText('Score: ' + score);
           enemy.dead(true);
           playerLaser.destroy();
         }
