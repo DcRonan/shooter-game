@@ -1,6 +1,6 @@
 import Button from '../src/components/Button'
 
-it('test', () => {
+it('checks if the class Button is defined', () => {
   expect(Button).toBeDefined()
 })
 
