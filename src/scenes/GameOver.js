@@ -49,7 +49,7 @@ export default class GameOver extends Phaser.Scene {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.querySelector('#name').value;
-      postScores(name, this.finalScore, url)
+      postScores(name, score, url)
         .then(() => {
           this.scene.start('LeaderBoard');
         })
