@@ -1,5 +1,5 @@
+import Phaser from 'phaser';
 import Base from '../Base';
-import Phaser from 'phaser'
 
 export default class EnemyTwo extends Base {
   constructor(scene, x, y) {

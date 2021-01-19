@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+
 import Phaser from 'phaser';
 
 export default class Starfield extends Phaser.Scene {
@@ -25,7 +27,7 @@ export default class Starfield extends Phaser.Scene {
 
     this.stars = this.add.blitter(0, 0, 'star');
 
-    for (let i = 0; i < this.max; i++) {
+    for (let i = 0; i < this.max; i += 1) {
       this.xx[i] = Math.floor(Math.random() * 800) - 400;
       this.yy[i] = Math.floor(Math.random() * 600) - 300;
       this.zz[i] = Math.floor(Math.random() * 1700) - 100;
@@ -39,7 +41,7 @@ export default class Starfield extends Phaser.Scene {
   }
 
   update(time, delta) {
-    for (let i = 0; i < this.max; i++) {
+    for (let i = 0; i < this.max; i += 1) {
       const perspective = this.distance / (this.distance - this.zz[i]);
       const x = 400 + this.xx[i] * perspective;
       const y = 300 + this.yy[i] * perspective;
@@ -57,3 +59,5 @@ export default class Starfield extends Phaser.Scene {
     }
   }
 }
+
+/* eslint-enable no-unused-expressions */

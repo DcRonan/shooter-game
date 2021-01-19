@@ -117,7 +117,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(
       this.player,
       this.enemies,
-       function crash(player, enemy) {
+      function crash(player, enemy) {
         if (!player.getData('dead') && !enemy.getData('dead')) {
           player.dead(false);
           player.shot();

@@ -1,3 +1,5 @@
+/* eslint-disable prefer-destructuring */
+
 import Phaser from 'phaser';
 import config from '../config/config';
 import { postScores, url } from '../components/api';
@@ -68,3 +70,5 @@ export default class GameOver extends Phaser.Scene {
     this.add.dom(config.width * 0.5, config.height * 0.5, form);
   }
 }
+
+/* eslint-enable prefer-destructuring */
