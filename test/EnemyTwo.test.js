@@ -1,7 +1,7 @@
 import EnemyTwo from '../src/objects/EnemyTwo';
 import Base from '../src/Base';
 
-it('checks if the class EnemyOne is defined', () => {
+it('checks if the class EnemyTwo is defined', () => {
   expect(EnemyTwo).toBeDefined();
 });
 
