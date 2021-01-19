@@ -14,6 +14,9 @@ import LeaderBoard from './scenes/LeaderBoard';
 class Game extends Phaser.Game {
   constructor() {
     super(config);
+    this.globals = {
+      score: 0,
+    };
     const audio = new Audio();
     this.globals = { audio, bgMusic: null };
     this.scene.add('Boot', BootScene);

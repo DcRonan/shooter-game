@@ -7,6 +7,8 @@ import Player from '../objects/Player';
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super({ key: 'GameScene' });
+
+    this.scoreTotal = 0
   }
 
   preload() {
@@ -34,13 +36,11 @@ export default class GameScene extends Phaser.Scene {
     img.setScale(scale).setScrollFactor(0);
 
     // Scores Display
-    let score = 0
-    let scoreText = this.add.text(40, 40, '', {
+    this.scoreText = this.add.text(40, 40, '', {
       font: '24px Courier',
       fill: '#00ff00',
     });
 
-    scoreText.setText('Score: ' + score);
 
     // Player Ship
     this.player = new Player(this, 400, 500, 'player').setScale(0.5);
@@ -85,50 +85,6 @@ export default class GameScene extends Phaser.Scene {
       loop: true,
       callbackScope: this,
     });
-
-    // If crash then game over
-    this.physics.add.overlap(
-      this.player,
-      this.enemies,
-      function (player, enemy) {
-        if (!player.getData('dead') && !enemy.getData('dead')) {
-          player.dead(false);
-          player.shot();
-          enemy.dead(true);
-        }
-      }
-    );
-
-    // If shot then player is dead
-    this.physics.add.overlap(
-      this.player,
-      this.enemyLasers,
-      function (player, laser) {
-        if (!player.getData('dead') && !laser.getData('dead')) {
-          player.dead(false);
-          player.shot();
-          laser.destroy();
-          score = 0
-        }
-      }
-    );
-
-    // If shot enemy then enemy dies
-    this.physics.add.collider(
-      this.playerLasers,
-      this.enemies,
-      function (playerLaser, enemy) {
-        if (enemy) {
-          if (enemy.shot !== undefined) {
-            enemy.shot();
-          }
-          score += 10;
-          scoreText.setText('Score: ' + score);
-          enemy.dead(true);
-          playerLaser.destroy();
-        }
-      }
-    );
   }
 
   update() {
@@ -155,5 +111,52 @@ export default class GameScene extends Phaser.Scene {
         this.player.setData('shooting', false);
       }
     }
+    
+    // If crash then game over
+    this.physics.add.overlap(
+      this.player,
+      this.enemies,
+      function (player, enemy) {
+        if (!player.getData('dead') && !enemy.getData('dead')) {
+          player.dead(false);
+          player.shot();
+          enemy.dead(true);
+          this.sys.game.globals.score = this.scoreTotal;
+          this.scoreTotal = 0
+        }
+      }, null, this
+    );
+
+    // If shot enemy then enemy dies
+    this.physics.add.collider(
+      this.playerLasers,
+      this.enemies,
+      function (playerLaser, enemy) {
+        if (enemy) {
+          if (enemy.shot !== undefined) {
+            enemy.shot();
+          }
+          this.scoreTotal += 10;
+          this.scoreText.setText('Score: ' + this.scoreTotal);
+          enemy.dead(true);
+          playerLaser.destroy();
+        }
+      }, null, this
+    );
+
+    // If shot then player is dead
+    this.physics.add.overlap(
+      this.player,
+      this.enemyLasers,
+      function (player, laser) {
+        if (!player.getData('dead') && !laser.getData('dead')) {
+          player.dead(false);
+          player.shot();
+          laser.destroy();
+          this.sys.game.globals.score = this.scoreTotal;
+          this.scoreTotal = 0
+        }
+      }, null, this
+    );
   }
 }

@@ -12,5 +12,9 @@ export default {
       gravity: { y: 0 },
     },
   },
+  parent: '#container',
+  dom: {
+    createContainer: true,
+  },
   autoCenter: true,
 };
