@@ -11,7 +11,7 @@ import GameOver from './scenes/GameOver';
 import Starfield from './scenes/Starfield';
 import LeaderBoard from './scenes/LeaderBoard';
 
-class Game extends Phaser.Game {
+export default class Game extends Phaser.Game {
   constructor() {
     super(config);
     this.globals = {
