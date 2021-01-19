@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import BootScene from '../src/scenes/BootScene';
 
 it('checks if the class BootScene is defined', () => {

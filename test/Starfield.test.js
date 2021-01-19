@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import Starfield from '../src/scenes/Starfield';
 
 it('checks if the class Starfield is defined', () => {

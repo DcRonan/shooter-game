@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import PreloaderScene from '../src/scenes/PreloaderScene';
 
 it('checks if the class PreloaderScene is defined', () => {

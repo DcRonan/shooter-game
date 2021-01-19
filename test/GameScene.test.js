@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import GameScene from '../src/scenes/GameScene';
 
 it('checks if the class GameScene is defined', () => {

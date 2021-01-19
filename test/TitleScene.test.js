@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import TitleScene from '../src/scenes/TitleScene';
 
 it('checks if the class TitleScene is defined', () => {

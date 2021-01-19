@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import CreditsScene from '../src/scenes/CreditsScene';
 
 it('checks if the class CreditsScene is defined', () => {

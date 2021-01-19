@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "npm run webhint && npm run stylelint && npm run eslint && echo \"Passed ✅✅ No errors! 😁😁\"",
+    "lint": "npm run stylelint && npm run eslint && echo \"Passed ✅✅ No errors! 😁😁\"",
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open",
     "stylelint": "npx stylelint '**/*.{css,scss}'",

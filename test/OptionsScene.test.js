@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import OptionsScene from '../src/scenes/OptionsScene';
 
 it('checks if the class OptionsScene is defined', () => {

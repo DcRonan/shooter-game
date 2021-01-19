@@ -1,11 +1,9 @@
 import { url, getScores } from '../src/components/api';
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    ok: true,
-    json: () => Promise.resolve({ result: [{ user: 'Daniel', score: 100 }] }),
-  })
-);
+global.fetch = jest.fn(() => Promise.resolve({
+  ok: true,
+  json: () => Promise.resolve({ result: [{ user: 'Daniel', score: 100 }] }),
+}));
 
 beforeEach(() => {
   fetch.mockClear();

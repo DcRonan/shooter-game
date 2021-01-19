@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import LeaderBoard from '../src/scenes/LeaderBoard';
 
 it('checks if the class LeaderBoard is defined', () => {

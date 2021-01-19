@@ -1,15 +1,17 @@
+/* eslint-disable no-unused-expressions */
+
 import Audio from '../src/util/Audio';
 
 const audio = new Audio();
 
 it('checks if audio turns on', () => {
-  audio._musicOn = true;
-  expect(audio._musicOn).toBeTruthy;
+  audio.musicOn = true;
+  expect(audio.musicOn).toBeTruthy;
 });
 
 it('checks if audio turns off', () => {
-  audio._musicOn = false;
-  expect(audio._musicOn).toBeFalsy;
+  audio.musicOn = false;
+  expect(audio.musicOn).toBeFalsy;
 });
 
 it('checks if the class Audio is defined', () => {
@@ -19,3 +21,5 @@ it('checks if the class Audio is defined', () => {
 it('Audio has a constructor', () => {
   expect(Audio.prototype.constructor).not.toBe(false);
 });
+
+/* eslint-enable no-unused-expressions */

@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import GameOver from '../src/scenes/GameOver';
 
 it('checks if the class GameOver is defined', () => {

@@ -1,12 +1,9 @@
 import { url, postScores } from '../src/components/api';
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    ok: true,
-    json: () =>
-      Promise.resolve({ result: 'You have successfully uploaded your scores' }),
-  })
-);
+global.fetch = jest.fn(() => Promise.resolve({
+  ok: true,
+  json: () => Promise.resolve({ result: 'You have successfully uploaded your scores' }),
+}));
 
 beforeEach(() => {
   fetch.mockClear();

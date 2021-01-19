@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import Base from '../src/Base';
 
 it('checks if the class Base is defined', () => {
