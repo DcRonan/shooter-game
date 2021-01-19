@@ -19,8 +19,8 @@ export default class GameScene extends Phaser.Scene {
     this.load.image('player-laser', 'assets/objects/blue-laser.png');
     this.load.image('player', 'assets/objects/player-ship.png');
     this.load.audio('laser-sound', 'assets/sounds/laser-sound.ogg');
-    this.load.audio('game-over-sound', 'assets/sounds/game-over.ogg')
-    this.sys.game.globals.bgMusic.stop()
+    this.load.audio('game-over-sound', 'assets/sounds/game-over.ogg');
+    this.sys.game.globals.bgMusic.stop();
   }
 
   create() {
@@ -49,7 +49,7 @@ export default class GameScene extends Phaser.Scene {
     // Sounds
     this.sfx = {
       laser: this.sound.add('laser-sound'),
-      gameOver: this.sound.add('game-over-sound')
+      gameOver: this.sound.add('game-over-sound'),
     };
 
     // KEYS
