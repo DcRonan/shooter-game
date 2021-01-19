@@ -8,7 +8,7 @@ export default class GameScene extends Phaser.Scene {
   constructor() {
     super({ key: 'GameScene' });
 
-    this.scoreTotal = 0
+    this.scoreTotal = 0;
   }
 
   preload() {
@@ -41,7 +41,6 @@ export default class GameScene extends Phaser.Scene {
       fill: '#00ff00',
     });
 
-
     // Player Ship
     this.player = new Player(this, 400, 500, 'player').setScale(0.5);
     this.add.existing(this.player);
@@ -55,7 +54,9 @@ export default class GameScene extends Phaser.Scene {
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+    this.keyD = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.RIGHT
+    );
     this.space = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
@@ -111,7 +112,7 @@ export default class GameScene extends Phaser.Scene {
         this.player.setData('shooting', false);
       }
     }
-    
+
     // If crash then game over
     this.physics.add.overlap(
       this.player,
@@ -122,9 +123,11 @@ export default class GameScene extends Phaser.Scene {
           player.shot();
           enemy.dead(true);
           this.sys.game.globals.score = this.scoreTotal;
-          this.scoreTotal = 0
+          this.scoreTotal = 0;
         }
-      }, null, this
+      },
+      null,
+      this
     );
 
     // If shot enemy then enemy dies
@@ -141,7 +144,9 @@ export default class GameScene extends Phaser.Scene {
           enemy.dead(true);
           playerLaser.destroy();
         }
-      }, null, this
+      },
+      null,
+      this
     );
 
     // If shot then player is dead
@@ -154,9 +159,11 @@ export default class GameScene extends Phaser.Scene {
           player.shot();
           laser.destroy();
           this.sys.game.globals.score = this.scoreTotal;
-          this.scoreTotal = 0
+          this.scoreTotal = 0;
         }
-      }, null, this
+      },
+      null,
+      this
     );
   }
 }

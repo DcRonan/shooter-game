@@ -53,7 +53,7 @@ export default class Player extends Base {
 
     this.y = Phaser.Math.Clamp(this.y, 0, config.height);
     this.x = Phaser.Math.Clamp(this.x, 0, config.width);
-    
+
     if (this.getData('shooting')) {
       if (this.getData('shootTime') < this.getData('shotFrequency')) {
         this.setData('shootTime', this.getData('shootTime') + 1);

@@ -1,5 +1,5 @@
-import Base from '../Base'
-import EnemyLaser from './EnemyLaser'
+import Base from '../Base';
+import EnemyLaser from './EnemyLaser';
 
 export default class EnemyOne extends Base {
   constructor(scene, x, y) {

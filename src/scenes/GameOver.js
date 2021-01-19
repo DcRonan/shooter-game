@@ -24,7 +24,14 @@ export default class GameOver extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
-    this.add.text(this.scale.width * 0.5, this.scale.height * 0.3, `Final score: ${score}`, { fontSize: 24 }).setOrigin();
+    this.add
+      .text(
+        this.scale.width * 0.5,
+        this.scale.height * 0.3,
+        `Final score: ${score}`,
+        { fontSize: 24 }
+      )
+      .setOrigin();
 
     // FORM
     const form = document.createElement('form');
@@ -33,17 +40,17 @@ export default class GameOver extends Phaser.Scene {
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', 'Enter your name..');
     input.setAttribute('id', 'name');
-    input.required = true
-    input.setAttribute('minlength', '3')
-    input.setAttribute('maxlength', '10')
-    input.style.padding = '7px'
-    submit.style.padding = '7px'
+    input.required = true;
+    input.setAttribute('minlength', '3');
+    input.setAttribute('maxlength', '10');
+    input.style.padding = '7px';
+    submit.style.padding = '7px';
     submit.setAttribute('type', 'submit');
     submit.textContent = 'Submit';
     document.body.appendChild(form);
     document.body.appendChild(submit);
     form.appendChild(input);
-    form.appendChild(submit)
+    form.appendChild(submit);
 
     // Submit Form
     form.addEventListener('submit', (e) => {
@@ -55,24 +62,10 @@ export default class GameOver extends Phaser.Scene {
         })
         .catch(() => {
           this.add
-            .text(
-              config.width * 0.5,
-              config.height * 0.1,
-              'Network Error'
-            )
+            .text(config.width * 0.5, config.height * 0.1, 'Network Error')
             .setOrigin();
         });
     });
     this.add.dom(config.width * 0.5, config.height * 0.5, form);
-
-    this.menuButton = new Button(
-      this,
-      400,
-      500,
-      'blueButton1',
-      'blueButton2',
-      'Menu',
-      'Title'
-    );
   }
 }

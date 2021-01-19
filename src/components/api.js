@@ -6,9 +6,9 @@ const getScores = () => {
     .then((response) => response.json())
     .then((data) => {
       if (data.result.length === 0) {
-        throw new Error()
+        throw new Error();
       }
-      return data.result.sort((a, b) => b.score - a.score)
+      return data.result.sort((a, b) => b.score - a.score);
     })
     .catch((error) => error);
   return response;

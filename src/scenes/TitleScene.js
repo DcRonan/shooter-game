@@ -15,7 +15,7 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Play',
-      'GameScene',
+      'GameScene'
     );
 
     this.optionsButton = new Button(
@@ -25,7 +25,7 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Options',
-      'Options',
+      'Options'
     );
 
     this.creditsButton = new Button(
@@ -35,7 +35,7 @@ export default class TitleScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Credits',
-      'Credits',
+      'Credits'
     );
 
     this.audio = this.sys.game.globals.audio;
