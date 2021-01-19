@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default {
   type: Phaser.AUTO,
-  parent: 'phaser-example',
+  parent: '#container',
   width: 800,
   height: 600,
   physics: {
@@ -12,7 +12,6 @@ export default {
       gravity: { y: 0 },
     },
   },
-  parent: '#container',
   dom: {
     createContainer: true,
   },

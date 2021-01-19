@@ -1,5 +1,6 @@
 import Base from '../Base';
 import EnemyLaser from './EnemyLaser';
+import Phaser from 'phaser';
 
 export default class EnemyOne extends Base {
   constructor(scene, x, y) {
@@ -10,7 +11,7 @@ export default class EnemyOne extends Base {
     this.shotFrequency = this.scene.time.addEvent({
       delay: 1100,
       callback() {
-        let laser = new EnemyLaser(this.scene, this.x, this.y);
+        const laser = new EnemyLaser(this.scene, this.x, this.y);
         laser.setScale(this.scaleX);
         this.scene.enemyLasers.add(laser);
       },

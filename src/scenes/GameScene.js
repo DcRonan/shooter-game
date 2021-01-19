@@ -23,16 +23,16 @@ export default class GameScene extends Phaser.Scene {
   }
 
   create() {
-    //Background Image
-    let img = this.add.image(
+    // Background Image
+    const img = this.add.image(
       this.cameras.main.width / 2,
       this.cameras.main.height / 2,
-      'background'
+      'background',
     );
 
-    let scaleX = this.cameras.main.width / img.width;
-    let scaleY = this.cameras.main.height / img.height;
-    let scale = Math.max(scaleX, scaleY);
+    const scaleX = this.cameras.main.width / img.width;
+    const scaleY = this.cameras.main.height / img.height;
+    const scale = Math.max(scaleX, scaleY);
     img.setScale(scale).setScrollFactor(0);
 
     // Scores Display
@@ -55,10 +55,10 @@ export default class GameScene extends Phaser.Scene {
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     this.keyD = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.RIGHT
+      Phaser.Input.Keyboard.KeyCodes.RIGHT,
     );
     this.space = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
+      Phaser.Input.Keyboard.KeyCodes.SPACE,
     );
 
     // Groups
@@ -107,7 +107,7 @@ export default class GameScene extends Phaser.Scene {
       } else {
         this.player.setData(
           'shootTime',
-          this.player.getData('shotFrequency') - 1
+          this.player.getData('shotFrequency') - 1,
         );
         this.player.setData('shooting', false);
       }
@@ -117,7 +117,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(
       this.player,
       this.enemies,
-      function (player, enemy) {
+       function crash(player, enemy) {
         if (!player.getData('dead') && !enemy.getData('dead')) {
           player.dead(false);
           player.shot();
@@ -127,33 +127,33 @@ export default class GameScene extends Phaser.Scene {
         }
       },
       null,
-      this
+      this,
     );
 
     // If shot enemy then enemy dies
     this.physics.add.collider(
       this.playerLasers,
       this.enemies,
-      function (playerLaser, enemy) {
+      function shootEnemy(playerLaser, enemy) {
         if (enemy) {
           if (enemy.shot !== undefined) {
             enemy.shot();
           }
           this.scoreTotal += 10;
-          this.scoreText.setText('Score: ' + this.scoreTotal);
+          this.scoreText.setText(`Score: ${this.scoreTotal}`);
           enemy.dead(true);
           playerLaser.destroy();
         }
       },
       null,
-      this
+      this,
     );
 
     // If shot then player is dead
     this.physics.add.overlap(
       this.player,
       this.enemyLasers,
-      function (player, laser) {
+      function playerShot(player, laser) {
         if (!player.getData('dead') && !laser.getData('dead')) {
           player.dead(false);
           player.shot();
@@ -163,7 +163,7 @@ export default class GameScene extends Phaser.Scene {
         }
       },
       null,
-      this
+      this,
     );
   }
 }

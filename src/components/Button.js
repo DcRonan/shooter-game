@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+
 import Phaser from 'phaser';
 
 export default class Button extends Phaser.GameObjects.Container {
@@ -36,3 +38,5 @@ export default class Button extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
   }
 }
+
+/* eslint-enable no-unused-expressions */

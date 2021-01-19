@@ -13,7 +13,7 @@ export default class PlayerLaser extends Base {
   }
 
   preUpdate(time, delta) {
-    if (this.active == false) {
+    if (this.active === false) {
       return;
     }
     super.preUpdate(time, delta);

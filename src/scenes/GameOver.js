@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import config from '../config/config';
-import Button from '../components/Button';
 import { postScores, url } from '../components/api';
 
 export default class GameOver extends Phaser.Scene {
@@ -29,7 +28,7 @@ export default class GameOver extends Phaser.Scene {
         this.scale.width * 0.5,
         this.scale.height * 0.3,
         `Final score: ${score}`,
-        { fontSize: 24 }
+        { fontSize: 24 },
       )
       .setOrigin();
 

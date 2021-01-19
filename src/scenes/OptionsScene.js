@@ -38,7 +38,7 @@ export default class OptionsScene extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Menu',
-      'Title'
+      'Title',
     );
 
     this.updateAudio();

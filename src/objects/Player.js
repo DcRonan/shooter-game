@@ -1,6 +1,7 @@
 import Base from '../Base';
 import config from '../config/config';
 import PlayerLaser from './PlayerLaser';
+import Phaser from 'phaser'
 
 export default class Player extends Base {
   constructor(scene, x, y, key) {

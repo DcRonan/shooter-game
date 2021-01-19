@@ -28,7 +28,7 @@ export default class LeaderBoard extends Phaser.Scene {
           .text(
             config.width * 0.5,
             config.height * 0.3 + 30 * i,
-            `${userData.user}: ${userData.score}`
+            `${userData.user}: ${userData.score}`,
           )
           .setOrigin();
       }
@@ -41,7 +41,7 @@ export default class LeaderBoard extends Phaser.Scene {
       'blueButton1',
       'blueButton2',
       'Menu',
-      'Title'
+      'Title',
     );
   }
 }

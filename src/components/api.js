@@ -14,12 +14,11 @@ const getScores = () => {
   return response;
 };
 
-const postScores = (user, score, url) =>
-  fetch(url, {
-    method: 'POST',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ user, score }),
-  });
+const postScores = (user, score, url) => fetch(url, {
+  method: 'POST',
+  mode: 'cors',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ user, score }),
+});
 
 export { url, getScores, postScores };

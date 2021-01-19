@@ -30,9 +30,9 @@ export default class Starfield extends Phaser.Scene {
       this.yy[i] = Math.floor(Math.random() * 600) - 300;
       this.zz[i] = Math.floor(Math.random() * 1700) - 100;
 
-      let perspective = this.distance / (this.distance - this.zz[i]);
-      let x = 400 + this.xx[i] * perspective;
-      let y = 300 + this.yy[i] * perspective;
+      const perspective = this.distance / (this.distance - this.zz[i]);
+      const x = 400 + this.xx[i] * perspective;
+      const y = 300 + this.yy[i] * perspective;
 
       this.stars.create(x, y);
     }
@@ -40,9 +40,9 @@ export default class Starfield extends Phaser.Scene {
 
   update(time, delta) {
     for (let i = 0; i < this.max; i++) {
-      let perspective = this.distance / (this.distance - this.zz[i]);
-      let x = 400 + this.xx[i] * perspective;
-      let y = 300 + this.yy[i] * perspective;
+      const perspective = this.distance / (this.distance - this.zz[i]);
+      const x = 400 + this.xx[i] * perspective;
+      const y = 300 + this.yy[i] * perspective;
 
       this.zz[i] += this.speed * (delta / 1000);
 
@@ -50,7 +50,7 @@ export default class Starfield extends Phaser.Scene {
         this.zz[i] -= 600;
       }
 
-      let bob = this.stars.children.list[i];
+      const bob = this.stars.children.list[i];
 
       bob.x = x;
       bob.y = y;
