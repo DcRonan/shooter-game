@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const base = require('./base');
 
 module.exports = merge(base, {
@@ -7,6 +8,11 @@ module.exports = merge(base, {
   output: {
     filename: 'bundle.min.js',
   },
+  plugins: [
+    new CopyPlugin([
+      { from: 'assets', to: 'assets' },
+    ]),
+  ],
   devtool: false,
   performance: {
     maxEntrypointSize: 900000,
