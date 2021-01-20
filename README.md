@@ -71,7 +71,7 @@ I have a built a space shooter game that you can move your character using keys 
 
 ## Testing ⚙
 
-> I have used linters to test my code, which include: [webhint](https://webhint.io/), [eslint](https://eslint.org/) and [stylelint](https://stylelint.io/)
+> I have used Jest to test my code, you can find more info here: [jest](https://jestjs.io/)
 
 1. - [ ] Open `Terminal` again
 2. - [ ] Run `cd shooter-game` to enter directory
