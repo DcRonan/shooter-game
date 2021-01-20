@@ -53,7 +53,7 @@ I have a built a space shooter game that you can move your character using keys 
 
 ## Live Demo 🎥
 
-<a href="https://app.netlify.com/start/repos"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+<a href="https://600778ae6b85bb46ac40aacf--dazzling-lamarr-c10a73.netlify.app/"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
 
 ## Install ⏳
 
