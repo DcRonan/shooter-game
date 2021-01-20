@@ -169,5 +169,52 @@ export default class GameScene extends Phaser.Scene {
       null,
       this,
     );
+
+    // DELETE enemies if they haven't been shot
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
+      const enemy = this.enemies.getChildren()[i];
+
+      enemy.update();
+
+      if (enemy.x < -enemy.displayWidth
+        || enemy.x > config.width + enemy.displayWidth
+        || enemy.y < -enemy.displayHeight * 4
+        || enemy.y > config.height + enemy.displayHeight) {
+        if (enemy) {
+          if (enemy.shot !== undefined) {
+            enemy.shot();
+          }
+          enemy.destroy();
+        }
+      }
+    }
+
+    // DELETE enemy lasers
+    for (let i = 0; i < this.enemyLasers.getChildren().length; i += 1) {
+      const laser = this.enemyLasers.getChildren()[i];
+      laser.update();
+      if (laser.x < -laser.displayWidth
+        || laser.x > config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > config.height + laser.displayHeight) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
+
+    // DELETE player lasers if haven't shot an enemy
+    for (let i = 0; i < this.playerLasers.getChildren().length; i += 1) {
+      const laser = this.playerLasers.getChildren()[i];
+      laser.update();
+      if (laser.x < -laser.displayWidth
+        || laser.x > config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > config.height + laser.displayHeight) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
 const key = 'DaHJ4cc1qLowKo5QQm9a';
-const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/DaHJ4cc1qLowKo5QQm9a/scores`;
+const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${key}/scores`;
 
 const networkError = (result) => {
   if (!result.ok) {
@@ -17,7 +17,7 @@ const getScores = () => {
         throw new Error();
       }
       return data.result.sort((a, b) => b.score - a.score);
-    })
+    });
   return response;
 };
 
