@@ -1,11 +1,11 @@
 const key = 'DaHJ4cc1qLowKo5QQm9a';
 const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${key}/scores`;
 
-const networkError = (result) => {
-  if (!result.ok) {
-    throw new Error(result.statusText);
+const networkError = (response) => {
+  if (!response.ok) {
+    throw new Error(response.statusText);
   }
-  return result;
+  return response;
 };
 
 const getScores = () => {
