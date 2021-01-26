@@ -20,7 +20,7 @@
 
 ![gif](./assets/main-gif.gif)
 
-I have a built a space shooter game that you can move your character using keys and have the ability to shooter lasers. I have added a scoring system to display your score, increment every time you shoot an enemy and the option to save it to the leaderboard. I have included a main menu which you can turn the music and sound on or off as well credits and button to play.
+I have a built a space shooter game that you can move your character using keys and have the ability to shooter lasers. I have added a scoring system to display your score, increment every time you shoot an enemy and the option to save it to the leaderboard. I have included the main menu which you can turn the music and sound on or off as well as credits and button to play.
 
 ## Instructions 🎮
 
@@ -64,7 +64,7 @@ I have a built a space shooter game that you can move your character using keys 
 1. - [ ] Open your `Terminal`
 2. - [ ] Navigate to the directory where you will like to install the repo by running `cd shooter-game`
 3. - [ ] Run `git clone git@github.com:DcRonan/shooter-game.git` to download <b>or</b> you can download using `HTTPS` by running `git clone https://github.com/DcRonan/shooter-game.git` in the terminal
-4. - [ ] Run `cd shooter-game` to enter directory
+4. - [ ] Run `cd shooter-game` to enter the directory
 5. - [ ] Run `npm i` to install all the packages
 6. - [ ] Run `npm run build` to build the app
 7. - [ ] Go on your preferred `browser` and open `dist/index.html` in the folder directory
@@ -76,7 +76,7 @@ I have a built a space shooter game that you can move your character using keys 
 > I have used Jest to test my code, you can find more info here: [jest](https://jestjs.io/)
 
 1. - [ ] Open `Terminal` again
-2. - [ ] Run `cd shooter-game` to enter directory
+2. - [ ] Run `cd shooter-game` to enter the directory
 3. - [ ] Run `npm test` to start testing
 4. - [ ] All tests will pass ✅
 
