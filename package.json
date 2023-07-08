@@ -60,7 +60,7 @@
     "jest-canvas-mock": "^2.3.0",
     "jest-expect-subclass": "^1.0.1",
     "raw-loader": "4.0.2",
-    "stylelint": "13.3.x",
+    "stylelint": "15.10.x",
     "stylelint-config-standard": "20.0.x",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "3.17.x",
